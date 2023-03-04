@@ -1,0 +1,32 @@
+.report_progress {
+  background: var(--white);
+  display: flex !important;
+  flex-direction: column;
+  border-left: 1px solid #eee9da;
+}
+
+.report_progress:first-child {
+  border: none;
+}
+
+.data {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.data_wrapper {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.summary_wrapper {
+  height: 100%;
+}
+
+.summary_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50% !important;
+}

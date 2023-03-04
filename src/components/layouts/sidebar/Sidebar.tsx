@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 
 import styles from "./Sidebar.module.css";
 import Icon from "@ant-design/icons";
-import { HomeIcon } from "../../../../public/assets/icons/home";
-import { AssetIcon } from "../../../../public/assets/icons/asset";
-import { VirusIcon } from "../../../../public/assets/icons/virus";
-import { ShieldIcon } from "../../../../public/assets/icons/shield";
+import { HomeIcon } from "../../../../public/assets/icons/Home";
+import { AssetIcon } from "../../../../public/assets/icons/Asset";
+import { VirusIcon } from "../../../../public/assets/icons/Virus";
+import { ShieldIcon } from "../../../../public/assets/icons/Shield";
 import classNames from "classnames";
 
 const { Sider } = Layout;
@@ -17,7 +17,7 @@ const menu = [
   { name: "Home", link: "/", icon: HomeIcon },
   { name: "Assets", link: "/assets", icon: AssetIcon },
   { name: "Compromised", link: "/compromised", icon: VirusIcon },
-  { name: "Data Leak", link: "/data-leak", icon: ShieldIcon }
+  { name: "Data Leak", link: "/data-leak", icon: ShieldIcon },
 ];
 
 const SideBar = () => {
