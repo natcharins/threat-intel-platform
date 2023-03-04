@@ -1,7 +1,7 @@
-import Assets from "../../modules/assets/Assets";
+import DataLeakModule from "../../modules/dataLeak/DataLeak";
 
 const DataLeak = () => {
-  return <Assets />;
+  return <DataLeakModule />;
 };
 
 export default DataLeak;
