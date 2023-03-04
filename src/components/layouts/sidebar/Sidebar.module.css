@@ -1,0 +1,13 @@
+.navbar {
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: var(--white) !important;
+  height: 100%;
+}
+
+.navbar_item {
+  padding: 0 15px;
+}
