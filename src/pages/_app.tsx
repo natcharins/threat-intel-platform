@@ -15,7 +15,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Header />
         <Layout>
           <SideBar />
-          <Component {...pageProps} />
+          <Layout style={{ padding: 15 }}>
+            <Component {...pageProps} />
+          </Layout>
         </Layout>
       </Layout>
     </Provider>

@@ -1,11 +1,16 @@
 import { Inter } from "next/font/google";
-import { Layout, Space } from "antd";
-import Main from "@/layouts/Main";
+import { Layout, Typography } from "antd";
+
+const { Title } = Typography;
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Home = () => {
-  return <>test</>;
+  return (
+    <Layout style={{ textAlign: "center" }}>
+      <Title>Threat Intel Platform</Title>
+    </Layout>
+  );
 };
 
 export default Home;

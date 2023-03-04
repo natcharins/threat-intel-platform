@@ -6,8 +6,28 @@
   bottom: 0;
   background: var(--white) !important;
   height: 100%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .navbar_item {
-  padding: 0 15px;
+  padding: 15px !important;
+}
+
+.link {
+  color: var(--medium-blue);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.link_active {
+  color: var(--dark-blue);
+  font-weight: 500;
+}
+
+.icon {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
 }

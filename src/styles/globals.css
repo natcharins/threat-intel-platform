@@ -1,3 +1,12 @@
 :root {
   --white: #ffffff;
+
+  --dark-blue: #6096b4;
+  --medium-blue: #93bfcf;
+  --slight-blue: #bdcdd6;
+  --slight-yellow: #eee9da;
+}
+
+body {
+  margin: 0;
 }
