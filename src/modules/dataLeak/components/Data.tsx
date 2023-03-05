@@ -48,15 +48,19 @@ const columns: ColumnsType<DataType> = [
     dataIndex: "severity",
     filters: [],
     render: (value: string) => {
-      return severityStatus.map((v) => {
-        if (v.key === value) {
-          return (
-            <Tag color={v.color} key={v.name}>
-              {v.name.toUpperCase()}
-            </Tag>
-          );
-        }
-      });
+      return (
+        <>
+          {severityStatus.map((v) => {
+            if (v.key === value) {
+              return (
+                <Tag color={v.color} key={v.name}>
+                  {v.name.toUpperCase()}
+                </Tag>
+              );
+            }
+          })}
+        </>
+      );
     }
   },
   {
@@ -176,6 +180,7 @@ const Dashboard: FC<{}> = () => {
           showSizeChanger: true,
           pageSizeOptions: ["10", "20", "30"]
         }}
+        scroll={{ x: 1500, y: 580 }}
       />
     </Layout>
   );

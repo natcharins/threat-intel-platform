@@ -1,59 +1,97 @@
-import { useState } from "react";
+import { ComponentType, SVGProps, useState } from "react";
 import Link from "next/link";
-import { Layout, List } from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 import { useRouter } from "next/router";
 
 import styles from "./Sidebar.module.css";
-import Icon from "@ant-design/icons";
-import { HomeIcon } from "../../../../public/assets/icons/Home";
-import { AssetIcon } from "../../../../public/assets/icons/Asset";
-import { VirusIcon } from "../../../../public/assets/icons/Virus";
-import { ShieldIcon } from "../../../../public/assets/icons/Shield";
+import Icon, {
+  AppstoreOutlined,
+  MailOutlined,
+  SettingOutlined
+} from "@ant-design/icons";
+import { HomeIcon } from "../../../../public/assets/icons/home";
+import { AssetIcon } from "../../../../public/assets/icons/asset";
+import { VirusIcon } from "../../../../public/assets/icons/virus";
+import { ShieldIcon } from "../../../../public/assets/icons/shield";
 import classNames from "classnames";
 
 const { Sider } = Layout;
 
-const menu = [
-  { name: "Home", link: "/", icon: HomeIcon },
-  { name: "Assets", link: "/assets", icon: AssetIcon },
-  { name: "Compromised", link: "/compromised", icon: VirusIcon },
-  { name: "Data Leak", link: "/data-leak", icon: ShieldIcon },
-];
+interface MenuLink {
+  link: string;
+  name: string;
+}
+
+type MenuItem = Required<MenuProps>["items"][number];
+
+function getItem(
+  label: React.ReactNode,
+  key?: React.Key,
+  icon?: React.ReactNode | null,
+  children?: MenuItem[],
+  type?: "group"
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type
+  } as MenuItem;
+}
 
 const SideBar = () => {
   const router = useRouter();
-  const [collapsed, setCollapsed] = useState(false);
 
-  const toggleCollapse = (value: boolean) => {
-    setCollapsed(value);
+  const getLink = (v: MenuLink) => {
+    return (
+      <Link
+        href={v.link}
+        className={classNames(
+          styles.link,
+          router.pathname === v.link && styles.link_active
+        )}
+      >
+        {v.name}
+      </Link>
+    );
   };
 
+  const getIcon = (icon: ComponentType<SVGProps<SVGSVGElement>>) => {
+    return <Icon component={icon} className={styles.icon} />;
+  };
+
+  const items: MenuProps["items"] = [
+    getItem(getLink({ name: "Home", link: "/" }), "home", getIcon(HomeIcon)),
+
+    getItem(
+      getLink({ name: "Assets", link: "/assets" }),
+      "assets",
+      getIcon(AssetIcon),
+      [getItem("Hosts", "hosts", null), getItem("Keywords", "keywords", null)]
+    ),
+
+    getItem(
+      getLink({ name: "Compromised", link: "/compromised" }),
+      "compromised",
+      getIcon(VirusIcon)
+    ),
+    getItem(
+      getLink({ name: "Data Leak", link: "/data-leak" }),
+      "data-leak",
+      getIcon(ShieldIcon)
+    )
+  ];
+
   return (
-    <Sider
-      width={256}
-      collapsed={collapsed}
-      onMouseOver={() => toggleCollapse(false)}
-      onMouseOut={() => toggleCollapse(true)}
-      className={styles.navbar}
-    >
-      <List>
-        {menu.map((v) => {
-          return (
-            <List.Item className={styles.navbar_item} key={v.name}>
-              <Link
-                href={v.link}
-                className={classNames(
-                  styles.link,
-                  router.pathname === v.link && styles.link_active
-                )}
-              >
-                <Icon component={v.icon} className={styles.icon} />
-                {v.name}
-              </Link>
-            </List.Item>
-          );
-        })}
-      </List>
+    <Sider width={256} className={styles.navbar}>
+      <Menu
+        style={{ width: 256 }}
+        defaultSelectedKeys={["home"]}
+        items={items}
+        mode="inline"
+        inlineCollapsed={false}
+      />
     </Sider>
   );
 };

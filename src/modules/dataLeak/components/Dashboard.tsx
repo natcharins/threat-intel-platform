@@ -7,7 +7,7 @@ import {
   Card,
   Statistic,
   Progress,
-  Divider,
+  Divider
 } from "antd";
 const { Text } = Typography;
 import styles from "./Dashboard.module.css";
@@ -26,7 +26,7 @@ interface Source {
 const reportData: Array<ReportProgress> = [
   { key: "reported", name: "Reported", total: 0 },
   { key: "inProgress", name: "In-progress", total: 3 },
-  { key: "close", name: "Close", total: 3 },
+  { key: "close", name: "Close", total: 3 }
 ];
 
 const reportSources: Array<Source> = [
@@ -35,7 +35,7 @@ const reportSources: Array<Source> = [
   { source: "website", total: 3 },
   { source: "fanpage", total: 1 },
   { source: "twitter", total: 0 },
-  { source: "other", total: 8 },
+  { source: "other", total: 8 }
 ];
 
 const Dashboard: FC<{}> = () => {
@@ -52,13 +52,13 @@ const Dashboard: FC<{}> = () => {
   }, []);
 
   return (
-    <Row gutter={16}>
-      <Col span={12}>
+    <Row gutter={8}>
+      <Col sm={24} md={12}>
         <Layout>
           <Row gutter={8}>
             {reportProgress?.map((v) => {
               return (
-                <Col span={8} key={v.key}>
+                <Col sm={24} md={8} key={v.key}>
                   <Card bordered={false}>
                     <Statistic title={v.name} value={v.total} />
                   </Card>
@@ -72,7 +72,7 @@ const Dashboard: FC<{}> = () => {
                 <Row gutter={16}>
                   {sources?.map((v: Source) => {
                     return (
-                      <Col span={12} key={v.source}>
+                      <Col sm={24} md={12} key={v.source}>
                         <Text>
                           {v.source} ({v.total})
                         </Text>
@@ -86,7 +86,7 @@ const Dashboard: FC<{}> = () => {
           </Row>
         </Layout>
       </Col>
-      <Col span={12}>
+      <Col sm={24} md={12}>
         <Card
           bordered={false}
           className={styles.summary_wrapper}
