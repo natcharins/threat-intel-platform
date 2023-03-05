@@ -25,7 +25,8 @@ const columns: ColumnsType<DataType> = [
     filters: [
       { text: "Public", value: "public" },
       { text: "Dark Web", value: "darkWeb" }
-    ]
+    ],
+    align: "center"
   },
   {
     title: "Source",
@@ -33,9 +34,10 @@ const columns: ColumnsType<DataType> = [
     key: "source"
   },
   {
-    title: "Ceyword",
+    title: "Keyword",
     dataIndex: "keyword",
-    key: "keyword"
+    key: "keyword",
+    align: "center"
   },
   {
     title: "Content",
@@ -61,7 +63,8 @@ const columns: ColumnsType<DataType> = [
           })}
         </>
       );
-    }
+    },
+    align: "center"
   },
   {
     title: "Monitoring Status",
@@ -78,12 +81,14 @@ const columns: ColumnsType<DataType> = [
           );
         }
       });
-    }
+    },
+    align: "center"
   },
   {
     title: "Date Feed",
     dataIndex: "date",
-    key: "date"
+    key: "date",
+    align: "center"
   },
   {
     title: "Status",
@@ -91,7 +96,8 @@ const columns: ColumnsType<DataType> = [
     key: "status",
     render: (value: boolean) => (
       <Switch checked={value} onChange={(v) => console.log("status: ", v)} />
-    )
+    ),
+    align: "center"
   },
   {
     title: "Action",
@@ -103,7 +109,8 @@ const columns: ColumnsType<DataType> = [
         <EditOutlined />
         <DeleteOutlined />
       </Space>
-    )
+    ),
+    align: "center"
   }
 ];
 
@@ -180,7 +187,7 @@ const Dashboard: FC<{}> = () => {
           showSizeChanger: true,
           pageSizeOptions: ["10", "20", "30"]
         }}
-        scroll={{ x: 1500, y: 580 }}
+        scroll={{ x: 1200, y: 580 }}
       />
     </Layout>
   );
