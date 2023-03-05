@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Select, Table, Tag, Button, Space } from "antd";
+import { Select, Table, Tag, Button, Space, Row, Col } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { TagType } from "@/models/Tag";
 import {
@@ -26,7 +26,7 @@ const data: DataType = {
   site: "Site Demo",
   asset: "https://xxx-xxx.com",
   ip: "127.0.0.1",
-  cpe: [{ name: "22" }],
+  cpe: [{ name: "22" }, { name: "80" }],
   company: "Microsoft",
   specification: "window_server_2003",
   version: "-",
@@ -57,12 +57,21 @@ const columns: ColumnsType<DataType> = [
     dataIndex: "cpe",
     key: "cpe",
     render: (tags) => (
-      <>
+      <Row>
         {tags.map((tag: TagType) => {
-          return <Tag key={tag.name}>{tag.name.toUpperCase()}</Tag>;
+          return (
+            <Col span={24}>
+              <Tag key={tag.name}>{tag.name.toUpperCase()}</Tag>
+              <Tag>
+                <PlusOutlined />
+                Add CPE
+              </Tag>
+            </Col>
+          );
         })}
-      </>
-    )
+      </Row>
+    ),
+    width: 200
   },
   {
     title: "Company",
@@ -140,6 +149,7 @@ const Data: FC<{}> = () => {
           showSizeChanger: true,
           pageSizeOptions: ["10", "20", "30"]
         }}
+        scroll={{ x: 1200, y: 580 }}
       />
     </>
   );
