@@ -1,5 +1,5 @@
 export interface TagType {
-  color: string;
+  color?: string;
   name: string;
 }
 

@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Layout, Table, Tag, Button, Space } from "antd";
+import { Table, Tag, Button, Space } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { TagType } from "@/models/Tag";
 
