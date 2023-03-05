@@ -1,11 +1,7 @@
 import { FC, useState } from "react";
 import { Layout, Table, Tag, Button, Space } from "antd";
 import type { ColumnsType } from "antd/es/table";
-
-interface TagType {
-  color: string;
-  name: string;
-}
+import { TagType } from "@/models/Tag";
 
 interface DataType {
   type: string;
@@ -82,7 +78,7 @@ const Data: FC<{}> = () => {
   const mockData: DataType[] = [...new Array(15).fill(data)];
 
   return (
-    <Layout>
+    <>
       <Space style={{ margin: "15px 0" }}>
         <Button type="primary">Export</Button>
       </Space>
@@ -99,8 +95,7 @@ const Data: FC<{}> = () => {
           pageSizeOptions: ["10", "20", "30"]
         }}
       />
-      ;
-    </Layout>
+    </>
   );
 };
 

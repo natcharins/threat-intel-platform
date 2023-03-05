@@ -6,7 +6,7 @@ import Data from "./components/Data";
 const items = [
   { key: "pverview", label: "Overview", children: "overview" },
   { key: "data", label: "Data", children: <Data /> },
-  { key: "asset", label: "Asset", children: "asset" },
+  { key: "asset", label: "Asset", children: "asset" }
 ];
 
 const Assets: FC<{}> = () => {
@@ -22,10 +22,10 @@ const Assets: FC<{}> = () => {
   };
 
   return (
-    <Layout>
+    <>
       <Title level={2}>{currentTabName()}</Title>
       <Tabs defaultActiveKey={tab} items={items} onChange={changeTab} />
-    </Layout>
+    </>
   );
 };
 

@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Threat Intel Platform</title>
       </Head>
-      <Layout style={{ height: "100vh" }}>
+      <Layout>
         <Header />
         <Layout>
           <SideBar />
